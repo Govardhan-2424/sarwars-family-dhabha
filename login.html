@@ -77,6 +77,52 @@ p{
   <a class="back" href="index.html">← Back to Website</a>
 
 </div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyC_QweprQRiMpvHkwLka3qIw2x22PW89S4",
+    authDomain: "sarwars-family-dhabha.firebaseapp.com",
+    projectId: "sarwars-family-dhabha",
+    storageBucket: "sarwars-family-dhabha.firebasestorage.app",
+    messagingSenderId: "1041983017000",
+    appId: "1:1041983017000:web:236cb6a36c6d414a4c251d",
+    measurementId: "G-QSPS6M9NM4"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.signupUser = async function () {
+    const email = document.getElementById("authEmail").value;
+    const password = document.getElementById("authPassword").value;
+    const message = document.getElementById("authMessage");
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      message.textContent = "Sign Up successful!";
+    } catch (error) {
+      message.textContent = error.message;
+    }
+  };
+
+  window.loginUser = async function () {
+    const email = document.getElementById("authEmail").value;
+    const password = document.getElementById("authPassword").value;
+    const message = document.getElementById("authMessage");
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      message.textContent = "Sign In successful!";
+    } catch (error) {
+      message.textContent = error.message;
+    }
+  };
+</script>
 </body>
 </html>
