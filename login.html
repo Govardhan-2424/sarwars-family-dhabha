@@ -69,10 +69,15 @@ p{
 
   <h1>Welcome</h1>
   <p>Sarwar's Family Dhaba</p>
+  <input id="authEmail" type="email" placeholder="Email" required>
 
-  <button class="auth-btn">Sign In</button>
+<input id="authPassword" type="password" placeholder="Password" required>
 
-  <button class="auth-btn">Sign Up</button>
+<p id="authMessage"></p>
+
+  <button class="auth-btn" onclick="loginUser()">Sign In</button>
+
+  <button class="auth-btn" onclick="signupUser()>Sign Up</button>
 
   <a class="back" href="index.html">← Back to Website</a>
 
